@@ -1,22 +1,17 @@
-#include <algorithm>
-#include <compare>
 #include <iostream>
 
 using namespace std;
 
-typedef long long int ll;
-
-struct foo {
-  int x;
-  // template<typename T>
-  strong_ordering operator<=>(const foo &other) const { return x <=> other.x; }
-};
 
 int main() {
-  int a[12];
-  cout<<a[13]<<endl;
-  foo f1;f1.x = 15;
-  foo f2; f2.x = 13;
-  cout<<(f1<=f2)<<endl;
+  int n = 102;// 1 + 0 + 2
+  string s;
+  s = to_string(n); // [1 -> 49  , 0-> 48 , 2->50]
+  int ans = 0;
+  for(auto it: s){
+    int tem = it-48;
+    ans += tem;
+  }
+  cout<<ans<<endl;
   return 0;
 }
