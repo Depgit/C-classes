@@ -1,42 +1,22 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <compare>
+#include <iostream>
+
 using namespace std;
 
 typedef long long int ll;
 
-struct dep {
-    int x;
-    float y;
-    ll z;
+struct foo {
+  int x;
+  // template<typename T>
+  strong_ordering operator<=>(const foo &other) const { return x <=> other.x; }
 };
-
-union dep1 {
-    int x;
-    float y;
-    ll z;
-};
-
-// ipv4 255.255.255.255
-// ipv6 ie:oi:09:93:38
-//
-// 64 byte -> 32 64
-
-void f(int &x){// p => 0x45---->  x-> 0x05 *p => *x => p address -> x
-    x = 100;
-    std::cout <<"x ki value "<<x  << std::endl;
-}
 
 int main() {
-    int x;std::cin >> x;
-    bool arr[32] = {0};
-    int i=0;
-    while(x){
-        arr[i] = x%2;
-        i++;
-        x = x / 2;
-    }
-    for(auto i: arr)std::cout << i<< " "  ;
-    return 0;
+  int a[12];
+  cout<<a[13]<<endl;
+  foo f1;f1.x = 15;
+  foo f2; f2.x = 13;
+  cout<<(f1<=f2)<<endl;
+  return 0;
 }
-
