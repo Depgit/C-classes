@@ -57,5 +57,12 @@ int main() {
         }
     }
     cout<<"}"<<endl;
+
+    // const int n = 10;
+    // int arr[n]; // 
+
+
+    
+
     return 0;
 }
