@@ -32,7 +32,7 @@ using namespace std;
 //
 
 
-#if 1
+#if 0
 struct Student {
     string name;
     int age;
@@ -44,34 +44,97 @@ int main() {
     // int arr[10] = {1,2,3,4,5,6,7,8,9,10};
     // std::cout <<s2.name<<" inside string "<<s2.age  << std::endl;
     Student s1 = {"Alice", 20, 3.8};
-    Student* ptr = &s1;
+    Student* ptr = &s1;// ptr[0x45] ------> s1[0x10]
+    std::cout <<s1.name  << std::endl;
 
+    // int *ptr = &x;//   *-> value ---> &address
+    // *ptr = 15;
+    // ptr = &y;
+    //
+    // *ptr => vlaue
+    (*ptr).name = "bob";
+    // ptr.name = "bob";
     // a) Direct access (s1.__)
     // b) Pointer with arrow (ptr->__)
+    // *ptr = s1{"bob"};
+    std::cout <<s1.name  << std::endl;
     // c) Pointer with dereference ((*ptr).__)
+    ptr->name = "dragon";
 
-
+    std::cout <<s1.name  << std::endl;
     return 0;
 }
 #endif
 
-#if 0
+#if 1
 struct Product {
     string name;
     double price;
 };
 
 int main() {
+    // int arr[2] = > 2 size int type array
+    // dep d[2] => 2 size ka dep obj array ---. dep d ->[dep]  ===> dep d[2] ==> [d[0]] , [d[1]]
+
+    // int arr[2][3] = {{1,2,3},{3,4,5}};
+    // std::cout <<arr[0][1]  << std::endl;
+// Product{name,price};
+//Product{name,price};
+//
     Product inventory[3] = {
         {"Laptop", 999.99},
         {"Mouse", 29.99},
         {"Keyboard", 79.99}
     };
 
-    // TASK: Calculate total price using:
+    // std::cout <<inventory[0][1] << std::endl;
+
     // a) Traditional for loop with index
+    // Product inven[3];
+    // for(int i=0;i<3;i++){
+        // std::cout <<"input for " << i << "th Product i.e. \n name and price "  << std::endl;
+        // std::cin >> inven[i].name;
+        // std::cin >> inven[i].price;
+    // }
+
     // b) Range-based for loop (auto)
+    // [[],[],[],[].......[]] ---> [[], [],[i],[]......[]]
+    // int arr[10]; for(int i : arr)std::cout << i  << std::endl;
+    // Product pro[3]; input Product ;
+    // [ { name , price}, {name , price }, {name , price}]
+    // a = 5;
+    // std::cout <<a  << std::endl;
+    // std::cout <<5  << std::endl;
+
+    for(auto &i : inventory){
+        std::cout <<i.name << " "<< i.price << std::endl;
+    }
+    // int arr[10];
+    // arr ==> *arr
+    // question ki kya me 10 len to kya me for se 5 tk hi iterate
+    // me ye chahta hu ki me n *ptr se iterate 5 len tk hi
+    // for(int i=0;i<2;i++)std::cout <<inventory[i].name<<" "<<inventory[i].price  << std::endl;
+    // int arr[12];
+    // int *p = arr;
+    Product *p = inventory;
+//    p = p + 1 ;
+
+
+
     // c) Pointer arithmetic
+ //   p->0x45(let)-> p + 1 -> p + sizeof(p) ---> p0x77
+// inventory(0x45) -> [{0x45},   {0x77} ,   {0x109}];
+//                      ^
+//                      p
+//                                  ^
+//                                  p         ^
+//                                            p
+//
+//x => x + 4*i  => 0x4 , 0x8, 0x12 , 0x16 => arr[3] ==> arr[0] + 3*4; == 0x4 + 3*4 => 0x16
+   // for(address p; p < &p + (3*32); p += 32)
+    for(Product *p = inventory;p < inventory+1;p = p + 1){
+        std::cout <<p->name<<" "<<p->price  << std::endl;
+    }
 
     return 0;
 }
