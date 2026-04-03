@@ -15,6 +15,7 @@ int main() {
 
     // freq fre = freq{}; // stack fre[- - - -] ->.  freq[] ---> fre
     freq *fre = new freq{};// freq();
-    cout<<fre->flag<<endl;
+    cin>>fre->key;
+    cout<<fre->key<<endl;
     return 0;
 }
