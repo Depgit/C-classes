@@ -1,32 +1,31 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <map>
+#include <set>
+#include <compare>
 using namespace std;
 
-struct Deparment {
-    // task
-    // function
-    // methods
-    // nested struct
+struct dep {
     int x;
-    Deparment(int n){
-        x = n;
-    }
-} ;
+    int y;
+    auto operator<=>(const dep&) const  = default;
+};
 
 int main() {
-    // is structure ka use kare mujhe ye batao
-    // lets imageing ki is structure ka 50 object
-    // Deparment d = Deparment{50};
-    // Deparment d = Deparment[50];
-    // Deparment *d = NULL;
-    // d = new (Deparment)(50 * sizeof(Deparment));
-    // nested structure ka use karke ek new obj
 
-    Deparment::nested obj;
-    d.functoin();
-    obj.functoin();
+    set<dep> st;
+    st.insert({1,2});
 
+//     st.insert({1,2});
+//     st.insert({3,2});
+//     st.insert({3,2});
+//
+//     for(auto it: st){
+//         // std::cout <<it.first<< " {"<<it.second.x<< " "<<it.second.y<<"}"  << std::endl;
+// //        std::cout <<it.x<< " "<<it.y  << std::endl;
+//     }
+//
     return 0;
 }
 
