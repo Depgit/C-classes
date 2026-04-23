@@ -48,6 +48,21 @@ public:
 };
 
 struct B : public A{
+    /// do so ething
+};
+
+struct C : public B
+{
+    // do something 
+    /* data */
+};
+
+struct D : public C{
+// dosomehting 
+};
+
+
+struct B : protected A{
     B(int y,int x) : A(x) {
         this->y = y;
     }
