@@ -3,7 +3,6 @@
 #include "Game.h"
 
 using namespace std;
-// g++ main.cpp -o game $(pkg-config --cflags --libs raylib)
 int main(){
     InitWindow(800,600,"Ball Game");
     Game game;
